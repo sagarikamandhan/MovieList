@@ -3,6 +3,13 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var app = express();
+//add middlewares
+app.use(cors());
+app.use(bodyParser.json());
+
+const route = require('./route/route');
+app.use('/api',route);
+
 const PORT = 3000;
 
 //database connection
