@@ -10,9 +10,11 @@ import{DataService} from '../data.service';
 })
 export class MoviesComponent implements OnInit {
 title = 'Movie component is working';
-text = "RK";
+
 
   movieItems : Item[] = [];
+  visible : boolean = false;
+  message : string;
   constructor(private dataService : DataService) { }
 
 getMovies(){
@@ -21,6 +23,14 @@ getMovies(){
   console.log("data from " + this.movieItems);
   });
 }
+delete(id){
+  this.dataService.deleteMovies(id).subscribe(items =>{
+    this.message = items.msg;
+    console.log(this.message);
+    this.getMovies();
+  });
+}
+
   ngOnInit() {
   this.getMovies();
   }
