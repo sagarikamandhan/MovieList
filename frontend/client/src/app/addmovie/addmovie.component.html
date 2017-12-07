@@ -1,0 +1,31 @@
+<form #form="ngForm" (ngSubmit) = "addMoviedetails(form)">
+
+  <div class="container">
+    <div class="row">
+      <div class="jumbotron">
+        <h4 class="text-center text-success"></h4>
+        <div class="form-group">
+          <label for="moviename">Movie Name:</label>
+          <input type="text" class="form-control" name="moviename" ngModel required/>
+        </div>
+        <div class="form-group">
+          <label for="moviegenre">Movie Genre:</label>
+          <input type="text" class="form-control" name="moviegenre" ngModel required/>
+        </div>
+        <div class="form-group">
+          <label for="moviedescription">Movie Description:</label>
+          <textarea name="moviedescription" class="form-control" ngModel required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="Movieurl">Movie ImageUrl:</label>
+          <input type="text" class="form-control" name="movieurl" ngModel required/>
+        </div>
+        <div class="form-group">
+          <label for="movierelease">Movie Release:</label>
+          <input type="checkbox"name="movierelease" ngModel required/>
+        </div>
+        <button type="submit" name="button" class="btn btn-success">Add Movie</button>
+      </div>
+    </div>
+  </div>
+</form>

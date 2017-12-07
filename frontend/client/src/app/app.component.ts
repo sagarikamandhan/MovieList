@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Item} from './item';
 import {MoviesComponent} from './movies/movies.component';
+import {AddmovieComponent} from'./addmovie/addmovie.component';
 import{DataService} from './data.service';
 
 
@@ -14,7 +15,7 @@ import{DataService} from './data.service';
 
 
 export class AppComponent {
-  title = 'app Works';
+  //title = 'jatt';
 
   constructor(private  dataService : DataService){}
   }

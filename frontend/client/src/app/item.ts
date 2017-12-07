@@ -1,7 +1,7 @@
 // creating model for items
 
 export class Item{
-  _id : String;
+  _id? : String;
   movie_name :String;
   movie_genre:String;
   movie_description:String;

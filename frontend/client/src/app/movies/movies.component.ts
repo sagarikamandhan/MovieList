@@ -6,20 +6,23 @@ import{DataService} from '../data.service';
   selector: 'app-movies',
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.css'],
-    providers : [DataService]
+  providers : [DataService]
 })
 export class MoviesComponent implements OnInit {
+title = 'Movie component is working';
+text = "RK";
+
   movieItems : Item[] = [];
   constructor(private dataService : DataService) { }
 
 getMovies(){
   this.dataService.getMovieList().subscribe(items => {
-    this.movieItems = items;
-    console.log("data from " + this.movieItems);
+  this.movieItems = items;
+  console.log("data from " + this.movieItems);
   });
 }
   ngOnInit() {
-    this.getMovies();
+  this.getMovies();
   }
 
 }
