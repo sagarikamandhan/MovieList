@@ -18,4 +18,9 @@ export class DataService {
   deleteMovies(id){
     return this.http.delete('http://localhost:3000/api/movie/'+id).map(res=> res.json());
   }
+  updateMovie(movie){
+    let headers = new Headers();
+    headers.append('content-tye','application/json');
+       return this.http.put('http://localhost:3000/api/movie/'+movie._id,movie,{headers : headers}).map(res => res.json());
+  }
 }

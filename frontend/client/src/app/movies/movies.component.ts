@@ -15,6 +15,7 @@ title = 'Movie component is working';
   movieItems : Item[] = [];
   visible : boolean = false;
   message : string;
+  selectedItems : Item;
   constructor(private dataService : DataService) { }
 
 getMovies(){
@@ -29,6 +30,27 @@ delete(id){
     console.log(this.message);
     this.getMovies();
   });
+}
+update(item){
+  this.visible = true;
+  this.selectedItems = item;
+  console.log(this.selectedItems);
+}
+updateMoviedetails(form){
+      let newItem : Item ={
+        _id : this.selectedItems._id,
+        movie_name :form.value.moviename,
+        movie_genre:form.value.moviegenre,
+        movie_description:form.value.moviedescription,
+        movie_release:form.value.movierelease,
+        movie_image:form.value.movieurl
+      }
+      this.dataService.updateMovie(newItem).subscribe(items =>{
+        this.message = items.msg;
+        console.log(items.msg);
+        this.getMovies();
+        this.visible =false;
+      });
 }
 
   ngOnInit() {

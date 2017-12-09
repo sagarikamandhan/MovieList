@@ -1,9 +1,3 @@
-<!--<div class="container">
-  <div class="jumbotron">{{title}}</div>
-  <input type="text" class="form-control" [(ngModel)] ="text"/>
-  <h4>{{text}}</h4>
-</div>-->
-
 <div class="container">
   <div class="row">
     <table class = "table table-hover">
@@ -24,10 +18,40 @@
           <td>{{item.movie_description}}</td>
           <td><img src="{{item.movie_image}}" class="img-thumbnail"></td>
           <td>{{item.movie_release}}</td>
-          <td><input type="button" class="btn btn-primary" (click)="update(item._id)" value="Edit"></td>
+          <td><input type="button" class="btn btn-primary" (click)="update(item)" value="Edit"></td>
           <td><input type="button" class="btn btn-danger" (click)="delete(item._id)" value="Delete"></td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
+<form #editform="ngForm" *ngIf="visible" (ngSubmit) = "updateMoviedetails(editform)">
+  <div class="container">
+    <div class="row">
+      <div class="jumbotron">
+        <h4 class="text-center text-success"></h4>
+        <div class="form-group">
+          <label for="moviename">Movie Name:</label>
+          <input type="text" class="form-control" name="moviename" value="" [(ngModel)]="selectedItems.movie_name" required/>
+        </div>
+        <div class="form-group">
+          <label for="moviegenre">Movie Genre:</label>
+          <input type="text" class="form-control" name="moviegenre" value="" [(ngModel)]="selectedItems.movie_genre" required/>
+        </div>
+        <div class="form-group">
+          <label for="moviedescription">Movie Description:</label>
+          <textarea name="moviedescription" class="form-control" value="" [(ngModel)]="selectedItems.movie_description" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="Movieurl">Movie ImageUrl:</label>
+          <input type="text" class="form-control" name="movieurl" value="" [(ngModel)]="selectedItems.movie_image" required/>
+        </div>
+        <div class="form-group">
+          <label for="movierelease">Movie Release:</label>
+          <input type="checkbox"name="movierelease" checked="" [(ngModel)]="selectedItems.movie_release" required/>
+        </div>
+        <button type="submit" name="button" class="btn btn-success">Update Movie</button>
+      </div>
+    </div>
+  </div>
+</form>
