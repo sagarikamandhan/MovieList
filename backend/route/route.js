@@ -16,7 +16,16 @@ router.get('/movies',function(req,res,next){
    }
  });
 });
-
+router.get('/movies/:_id',function(req,res,next){
+  item.findById({_id:req.params._id},function(err,result){
+    if(err){
+      throw err;
+    }
+    else{
+      res.json(result);
+    }
+  });
+});
 //insert movie into the database
 router.post('/movie',function(req,res,next){
   let newMovieItem = new item({

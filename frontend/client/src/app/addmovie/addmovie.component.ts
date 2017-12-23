@@ -9,7 +9,7 @@ import{DataService} from '../data.service';
   providers : [DataService]
 })
 export class AddmovieComponent implements OnInit {
-
+message : string;
   constructor(private dataService : DataService) { }
 addMoviedetails(form){
       let newItem : Item ={
@@ -20,8 +20,9 @@ addMoviedetails(form){
         movie_image:form.value.movieurl
       }
       this.dataService.addMovies(newItem).subscribe(items =>{
-        var msg = items.value;
+        this.message = items.msg;
         console.log(items.msg);
+        form.reset();
       });
 }
   ngOnInit() {
