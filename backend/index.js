@@ -13,7 +13,9 @@ app.use('/api',route);
 const PORT = 3000;
 
 //database connection
-mongoose.connect('mongodb://localhost:27017/shopping/backend');
+mongoose.connect('mongodb://localhost:27017/shopping',{
+	useMongoClient :true,
+});
 
 //check database connection
 mongoose.connection.on('connected', function(){
